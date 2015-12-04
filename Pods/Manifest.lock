@@ -1,0 +1,14 @@
+PODS:
+  - Rhea (0.2.4):
+    - Rhea/Default (= 0.2.4)
+  - Rhea/Core (0.2.4)
+  - Rhea/Default (0.2.4):
+    - Rhea/Core
+
+DEPENDENCIES:
+  - Rhea (~> 0.2)
+
+SPEC CHECKSUMS:
+  Rhea: 626b54ddf108c1f079a430ed2ed93f3af938ef07
+
+COCOAPODS: 0.39.0
