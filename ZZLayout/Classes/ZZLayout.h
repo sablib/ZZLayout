@@ -13,6 +13,7 @@
 #import "ZZLayoutConstraint.h"
 #import "ZZLayoutConstraintMaker.h"
 #import "ZZHelperConstraint.h"
+#import "ZZLayoutItem+ZZConstraint.h"
 
 
 #endif /* ZZLayout_h */

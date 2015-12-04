@@ -1,16 +1,4 @@
-platform :ios, '8.0'
-# use_frameworks!
+platform :ios, '7.0'
 
 pod 'Rhea', '~> 0.2'
-
-target 'ZZLayout' do
-end
-
-target 'ZZLayoutTests' do
-
-end
-
-target 'ZZLayoutUITests' do
-
-end
 
