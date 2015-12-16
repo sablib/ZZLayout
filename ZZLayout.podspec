@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ZZLayout"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "Layout items use masonry-like api.."
   s.description  = <<-DESC
   It use `Rhea` to layout items like `Masonry`.
