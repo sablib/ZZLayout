@@ -48,10 +48,50 @@ ZZHelperConstraintAttribute helperAttrFromLayoutAttr(ZZLayoutConstraintAttribute
         if ([obj isKindOfClass:[ZZLayoutItem class]]) {
             self.secondItem = (ZZLayoutItem *)obj;
             self.secondAttributes = self.firstAttributes;
+            self.relation = ZZLayoutRelationEqual;
             return self;
         } else if ([obj isKindOfClass:[ZZHelperConstraint class]]) {
             self.secondItem = [(ZZHelperConstraint *)obj firstItem];
             self.secondAttributes = [(ZZHelperConstraint *)obj firstAttributes];
+            self.relation = ZZLayoutRelationEqual;
+            return self;
+        } else {
+            NSAssert(NO, @"argument should be ZZLayoutItem or ZZHelperConstraint");
+            self.relation = ZZLayoutRelationEqual;
+            return self;
+        }
+    };
+}
+
+- (ZZHelperConstraint * (^)(id obj))lessThanOrEqualTo {
+    return ^ZZHelperConstraint *(id obj) {
+        if ([obj isKindOfClass:[ZZLayoutItem class]]) {
+            self.secondItem = (ZZLayoutItem *)obj;
+            self.secondAttributes = self.firstAttributes;
+            self.relation = ZZLayoutRelationLessThanOrEqual;
+            return self;
+        } else if ([obj isKindOfClass:[ZZHelperConstraint class]]) {
+            self.secondItem = [(ZZHelperConstraint *)obj firstItem];
+            self.secondAttributes = [(ZZHelperConstraint *)obj firstAttributes];
+            self.relation = ZZLayoutRelationLessThanOrEqual;
+            return self;
+        } else {
+            NSAssert(NO, @"argument should be ZZLayoutItem or ZZHelperConstraint");
+            return self;
+        }
+    };
+}
+- (ZZHelperConstraint * (^)(id obj))greaterThanOrEqualTo {
+    return ^ZZHelperConstraint *(id obj) {
+        if ([obj isKindOfClass:[ZZLayoutItem class]]) {
+            self.secondItem = (ZZLayoutItem *)obj;
+            self.secondAttributes = self.firstAttributes;
+            self.relation = ZZLayoutRelationGreaterThanOrEqual;
+            return self;
+        } else if ([obj isKindOfClass:[ZZHelperConstraint class]]) {
+            self.secondItem = [(ZZHelperConstraint *)obj firstItem];
+            self.secondAttributes = [(ZZHelperConstraint *)obj firstAttributes];
+            self.relation = ZZLayoutRelationGreaterThanOrEqual;
             return self;
         } else {
             NSAssert(NO, @"argument should be ZZLayoutItem or ZZHelperConstraint");
@@ -136,6 +176,7 @@ ZZHelperConstraintAttribute helperAttrFromLayoutAttr(ZZLayoutConstraintAttribute
         constraint.secondAttribute = attr;
         constraint.multiplier = self.zz_multiplier;
         constraint.offset = self.zz_offset;
+        constraint.relation = self.relation;
         [self.firstItem addConstraint:constraint];
     }];
     
@@ -150,6 +191,7 @@ ZZHelperConstraintAttribute helperAttrFromLayoutAttr(ZZLayoutConstraintAttribute
             constraint.secondAttribute = attr;
             constraint.multiplier = self.zz_multiplier;
             constraint.offset = self.zz_offset;
+            constraint.relation = self.relation;
             [self.firstItem addConstraint:constraint];
         }];
     }

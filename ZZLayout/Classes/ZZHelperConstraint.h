@@ -29,6 +29,7 @@ typedef NS_OPTIONS(NSInteger, ZZHelperConstraintAttribute) {
 @property (nonatomic, assign) ZZHelperConstraintAttribute firstAttributes;
 @property (nonatomic, weak) ZZLayoutItem *secondItem;
 @property (nonatomic, assign) ZZHelperConstraintAttribute secondAttributes;
+@property (nonatomic, assign) ZZLayoutRelation relation;
 @property (nonatomic, assign) CGFloat zz_multiplier;
 @property (nonatomic, assign) CGFloat zz_offset;
 
@@ -36,6 +37,8 @@ typedef NS_OPTIONS(NSInteger, ZZHelperConstraintAttribute) {
 - (ZZHelperConstraint * (^)(CGFloat offset))offset;
 - (ZZHelperConstraint * (^)(CGFloat multiplier))multipliedBy;
 - (ZZHelperConstraint * (^)(id obj))equalTo;
+- (ZZHelperConstraint * (^)(id obj))lessThanOrEqualTo;
+- (ZZHelperConstraint * (^)(id obj))greaterThanOrEqualTo;
 - (ZZHelperConstraint *)with;
 - (ZZHelperConstraint *)and;
 - (ZZHelperConstraint *)left;

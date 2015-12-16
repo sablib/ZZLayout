@@ -21,7 +21,11 @@ typedef NS_ENUM(NSInteger, ZZLayoutConstraintAttribute) {
     ZZLayoutConstraintAttributeCenterY,
 };
 
-
+typedef NS_ENUM(NSInteger, ZZLayoutRelation) {
+    ZZLayoutRelationLessThanOrEqual = -1,
+    ZZLayoutRelationEqual = 0,
+    ZZLayoutRelationGreaterThanOrEqual = 1,
+};
 
 @class ZZLayoutItem;
 
@@ -31,6 +35,7 @@ typedef NS_ENUM(NSInteger, ZZLayoutConstraintAttribute) {
 @property (nonatomic, assign) ZZLayoutConstraintAttribute firstAttribute;
 @property (nonatomic, weak) ZZLayoutItem *secondItem;
 @property (nonatomic, assign) ZZLayoutConstraintAttribute secondAttribute;
+@property (nonatomic, assign) ZZLayoutRelation relation;
 @property (nonatomic, assign) CGFloat multiplier;
 @property (nonatomic, assign) CGFloat offset;
 

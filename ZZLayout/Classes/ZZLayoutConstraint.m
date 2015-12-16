@@ -7,6 +7,7 @@
 //
 
 #import "ZZLayoutConstraint.h"
+#import "ZZLayoutItem.h"
 
 @implementation ZZLayoutConstraint
 

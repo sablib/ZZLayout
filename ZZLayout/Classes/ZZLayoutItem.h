@@ -14,15 +14,19 @@
 
 @interface ZZLayoutItem : NSObject
 
+@property (nonatomic, weak, readonly) ZZLayoutItem *parent;
+@property (nonatomic, strong, readonly) NSMutableArray<ZZLayoutItem *> *children;
+
 @property (nonatomic, readonly) NSMutableArray *constraints;
 
-- (CGRect)frame;
+@property (nonatomic, readonly) CGRect bounds;
+@property (nonatomic) CGRect frame;
 
-- (void)setFrame:(CGRect)frame;
 
 - (void)constraintAt:(ZZLayoutConstraintAttribute)attribute
               toItem:(ZZLayoutItem *)item
                   at:(ZZLayoutConstraintAttribute)attribute1
+            relation:(ZZLayoutRelation)relation
            multipyBy:(CGFloat)factor
           withOffset:(CGFloat)offset;
 
@@ -30,6 +34,11 @@
 
 - (void)makeConstraints:(void(^)(ZZLayoutConstraintMaker *make))block;
 
-+ (void)layout;
+//- (void)activateConstraint:(ZZLayoutConstraint *)constraint;
+//- (void)deactivateConstraint:(ZZLayoutConstraint *)constraint;
+
+- (void)addSubItem:(ZZLayoutItem *)item;
+
+- (void)layout;
 
 @end
