@@ -196,9 +196,6 @@
 - (rhea::constraint *)rhea_constraintFromZZLayoutConstraint:(ZZLayoutConstraint *)constraint {
     NSAssert(constraint.firstItem != nil && constraint.secondItem != nil, @"two item should have the same ancestor.");
     
-    ZZLayoutItem *ancestor = [constraint.firstItem _commonAncestorWithItem:constraint.secondItem];
-    NSAssert(ancestor != nil, @"the two item should hava a common ancestor.");
-    
     rhea::variable *var1 = [constraint.firstItem variableForConstraintAttribute:constraint.firstAttribute];
     rhea::variable *var2 = [constraint.secondItem variableForConstraintAttribute:constraint.secondAttribute];
     
