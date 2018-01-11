@@ -1,4 +1,6 @@
 # ZZLayout
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsablib%2FZZLayout.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsablib%2FZZLayout?ref=badge_shield)
+
 
 基于Rhea来进行布局计算，并没有使用AutoLayout，用法见代码。
 目前还比较简单，功能上、API上都是，之后添加其他的功能。
@@ -39,3 +41,7 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     });
 });
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsablib%2FZZLayout.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsablib%2FZZLayout?ref=badge_large)
